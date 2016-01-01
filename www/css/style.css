@@ -6,3 +6,7 @@
   color: #34efff;
   border-color: #34efff;
 }
+
+#pre-wrap-text, #pre-wrap-wake {
+  white-space:pre-wrap;
+}
