@@ -1,0 +1,15 @@
+<ion-view view-title="Reality Check">
+  <ion-content class="padding">
+      <div style="margin: 0; padding: 0;  width: 100%; text-align: center;">
+        <i class="icon ion-ios-checkmark-outline positive middle" style="font-size: 6rem"></i>
+      </div>
+      <div class="card">
+        <div class="item item-text-wrap">
+          Der Reality Check wird stündlich zwischen 7 - 22 Uhr Notifications an dich senden.
+          Hierbei soll dir eine Technik beigebracht werden die dich bei einem Traum unterstützen
+          kann klar zu werden.
+        </div>
+      </div>
+      <button class="button button-block button-positive" ng-click="toggleRealityCheck()">{{realityCheckIsRunning ? 'Stop' : 'Start'}}</button>
+  </ion-content>
+</ion-view>

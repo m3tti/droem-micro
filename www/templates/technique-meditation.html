@@ -1,0 +1,28 @@
+<ion-view view-title="Meditation">
+  <ion-content class="padding">
+      <div style="margin: 0; padding: 0;  width: 100%; text-align: center;">
+        <i class="icon ion-ios-person positive" style="font-size: 6rem"></i>
+      </div>
+      <div class="card">
+        <div class="item item-text-wrap">
+          Der Meditations Timer von dr&oslash;m weckt dich sanft nach <span ng-bind="data.meditationTimeout"></span>
+          {{data.meditationTimeout > 1 ? 'Minuten' : 'Minute'}}.
+          <br/>
+          <br/>
+          Meditation steigert dein Wohlbefinden und beruhigt deine Träume, damit du
+          klar und mit bedacht deine Handlungen machen kannst.
+          <br/>
+          <br/>
+          <b>Tipp:</b> Meditiere doch einfach mal im Sitzen nachdem du mit dem WBTB Timer aufgewacht bist.
+        </div>
+      </div>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Zeit in Minuten</span>
+          <input type="number" ng-model="data.meditationEnd">
+        </label>
+      </div>
+
+      <button class="button button-block button-positive" ng-click="toggleWBTB()">{{meditation ? 'Stop' : 'Start'}}</button>
+  </ion-content>
+</ion-view>

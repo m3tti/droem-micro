@@ -1,0 +1,21 @@
+<ion-view view-title="FILD / HILD">
+  <ion-content class="padding">
+      <div style="margin: 0; padding: 0;  width: 100%; text-align: center;">
+        <i class="icon ion-android-hand positive middle" style="font-size: 6rem"></i>
+      </div>
+      <div class="card">
+        <div class="item item-text-wrap">
+          Tappe einfach auf dein Handy. Wenn du nach einer gewissen Zeit nicht
+          mehr Tappst dann wird ein Sound abgespielt.
+          Mit dieser Technik bleibst du im Grenzbereich.
+        </div>
+      </div>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Sensitivität</span>
+          <input type="number" ng-model="data.sensitivity">
+        </label>
+      </div>
+      <button class="button button-block button-positive" ng-click="toggleFild()">{{fildRunning ? 'Stop' : 'Start'}}</button>
+  </ion-content>
+</ion-view>

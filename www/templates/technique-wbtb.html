@@ -1,0 +1,25 @@
+<ion-view view-title="WBTB">
+  <ion-content class="padding">
+      <div style="margin: 0; padding: 0;  width: 100%; text-align: center;">
+        <i class="icon ion-ios-alarm-outline positive" style="font-size: 6rem"></i>
+      </div>
+      <div class="card">
+        <div class="item item-text-wrap">
+          Der WBTB Timer von dr&oslash;m weckt dich nach <span ng-bind="data.wakeupTimeout"></span>
+          {{data.wakeupTimeout > 1 ? 'Stunden' : 'Stunde'}}.
+          Hierbei solltest du auch immer deine Einschalfzeit mit einrechnen.
+          <br/>
+          <br/>
+          Nachdem der Timer dich geweckt hat musst du mindestens 30 Minuten wach bleiben.
+        </div>
+      </div>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Schlaf in Stunden</span>
+          <input type="number" ng-model="data.wakeupTime">
+        </label>
+      </div>
+
+      <button class="button button-block button-positive" ng-click="toggleWBTB()">{{wbtb ? 'Stop' : 'Start'}}</button>
+  </ion-content>
+</ion-view>

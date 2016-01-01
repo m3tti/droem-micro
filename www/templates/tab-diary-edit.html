@@ -1,0 +1,85 @@
+<ion-view view-title="TTB Eintrag">
+  <ion-nav-buttons side="secondary">
+     <a class="button button-positive button-clear" ng-click="save()">
+         Speichern
+     </a>
+  </ion-nav-buttons>
+
+  <ion-content overflow-scroll="true">
+    <div class="list card">
+      <div class="item item-image">
+        <img ng-show="entry.image" ng-src="{{entry.image}}">
+      </div>
+
+      <a class="item item-icon-left assertive" ng-click="takePicture()">
+        <i class="icon ion-camera"></i>
+        Take Picture
+      </a>
+    </div>
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Title</span>
+        <input type="text" placeholder="My Title" ng-model="entry.title">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Text</span>
+        <textarea placeholder="Lorem ipsum dolor" rows="10" ng-model="entry.text"></textarea>
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Traumart
+        </div>
+        <select ng-model="entry.dream_type">
+          <option ng-repeat="dream_type in dream_types" value="{{dream_type}}">{{translate(dream_type)}}</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Klarheit</span>
+        <input type="number" placeholder="0 - 10" ng-model="entry.conciousness">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Kontrolle</span>
+        <input type="number" placeholder="0 - 10" ng-model="entry.control">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Dauer</span>
+        <input type="number" placeholder="in Minuten" ng-model="entry.duration">
+      </label>
+
+      <div class="item item-button-right">
+         <h2>Techniken</h2>
+         <ul>
+           <li ng-repeat="technique in entry.techniques">{{technique}}</li>
+         </ul>
+         <button class="button button-positive" ng-click="showTechniquesPopup()">
+           <i class="icon ion-edit"></i>
+         </button>
+      </div>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Personen</span>
+        <input type="text" placeholder="Oma, Opa, ..." ng-model="entry.persons">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Orte</span>
+        <input type="text" placeholder="Haus, See, ..." ng-model="entry.locations">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Gefühle</span>
+        <input type="text" placeholder="Angst, Freude, ..." ng-model="entry.feelings">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Ereignisse aus dem Wachleben</span>
+        <textarea placeholder="Lorem ipsum dolor" rows="10" ng-model="entry.waking_life"></textarea>
+      </label>
+    </div>
+  </ion-content>
+</ion-view>

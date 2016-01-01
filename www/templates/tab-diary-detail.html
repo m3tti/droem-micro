@@ -1,0 +1,83 @@
+<ion-view view-title="TTB Eintrag">
+  <ion-nav-buttons side="secondary">
+     <a class="button button-positive button-clear" ng-href="#/tab/diary/edit/{{entry.id}}">
+         Bearbeiten
+     </a>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="list card">
+      <div class="item item-image">
+        <img ng-show="entry.image" ng-src="{{entry.image}}">
+        <span ng-show="!entry.image">Kein Bild verfügbar!</span>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item">
+        <h2>{{entry.title}}</h2>
+      </div>
+      <div class="item">
+        <p>{{entry.text}}</p>
+      </div>
+    </div>
+
+    <div class="list card">
+      <div class="item">
+        <h2>Weitere Angaben</h2>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="col">Traumart:</div>
+          <div class="col">{{translate(entry.dream_type)}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col">Techniken:</div>
+          <div class="col">
+            <ul>
+              <li ng-repeat="technique in entry.techniques">{{technique}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">Klarheit:</div>
+          <div class="col">{{entry.conciousness}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col">Kontrolle:</div>
+          <div class="col">{{entry.control}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col">Dauer:</div>
+          <div class="col">{{entry.duration}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col">Personen:</div>
+          <div class="col">{{entry.persons}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col">Orte:</div>
+          <div class="col">{{entry.locations}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col">Gefühle:</div>
+          <div class="col">{{entry.feelings}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="list card">
+      <div class="item">
+        <h2>Ereignisse aus dem Wachleben</h2>
+      </div>
+      <div class="item">
+        <p>{{entry.waking_life}}</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

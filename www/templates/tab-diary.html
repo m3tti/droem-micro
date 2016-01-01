@@ -1,28 +1,27 @@
-<ion-view view-title="Diary">
-  <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-          There is a fire in <b>sector 3</b>
-        </div>
+<ion-view view-title="TTB">
+ <ion-nav-buttons side="secondary">
+    <a class="button button-positive button-clear" href="#/tab/diary/edit/new">
+        Neu
+    </a>
+ </ion-nav-buttons>
+
+ <ion-content class="">
+    <ion-list class="">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search" ng-model="searchTerm">
+        </label>
       </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Health</div>
-      <div class="item item-body">
-        <div>
-          You ate an apple today!
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Upcoming</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
-        </div>
-      </div>
-    </div>
+     <ion-item ng-repeat="entry in entries | filter: searchTerm" ng-href="#/tab/diary/{{entry.id}}">
+        <h2>{{entry.title}}</h2>
+        <p>erstellt: {{entry.timestamp}}</p>
+        <p>verändert: {{entry.modifiedAt}}</p>
+
+        <ion-option-button class="button-assertive" ng-click="remove(entry)">
+          Löschen
+        </ion-option-button>
+     </ion-item>
+    <ion-list>
   </ion-content>
 </ion-view>

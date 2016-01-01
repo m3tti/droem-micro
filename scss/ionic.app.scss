@@ -18,6 +18,29 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+$positive: #34efff !default;
+
+.lucid {
+  background: #2d2d2d;
+  color: #34efff;
+
+  list {
+    background: #2d2d2d;
+    color: #34efff;
+  }
+  item {
+    background: #2d2d2d;
+    color: #34efff;
+  }
+  card {
+    background: #2d2d2d;
+    color: #34efff;
+  }
+  ion-item {
+    background: #2d2d2d;
+    color: #34efff;
+  }
+}
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-

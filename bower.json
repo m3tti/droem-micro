@@ -3,5 +3,9 @@
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.2.1"
+  },
+  "dependencies": {
+    "simple-uuid": "~1.0.1",
+    "angular-localforage": "~1.2.5"
   }
 }

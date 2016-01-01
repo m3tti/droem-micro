@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('droem', ['ionic'])
+angular.module('droem', ['ionic', 'LocalForageModule', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -14,16 +14,20 @@ angular.module('droem', ['ionic'])
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    cordova.plugins.backgroundMode.enable();
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $localForageProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.views.transition('android');
+  $ionicConfigProvider.tabs.style('standard').position('bottom');
+  $ionicConfigProvider.navBar.alignTitle('center').positionPrimaryButtons('left');
+
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -52,11 +56,20 @@ angular.module('droem', ['ionic'])
   .state('tab.diary-detail', {
       url: '/diary/:id',
       views:{
-        'tab-diary-detail': {
+        'tab-diary': {
             templateUrl: 'templates/tab-diary-detail.html',
             controller: 'DiaryEntryCtrl'
         }
-      } 
+      }
+  })
+  .state('tab.diary-edit', {
+      url: '/diary/edit/:id',
+      views:{
+        'tab-diary': {
+            templateUrl: 'templates/tab-diary-edit.html',
+            controller: 'DiaryEntryCtrl'
+        }
+      }
   })
 
   .state('tab.technique', {
@@ -71,7 +84,7 @@ angular.module('droem', ['ionic'])
     .state('tab.technique-wbtb', {
       url: '/technique/wbtb',
       views: {
-        'tab-technique-wbtb': {
+        'tab-technique': {
           templateUrl: 'templates/technique-wbtb.html',
           controller: 'WbtbCtrl'
         }
@@ -80,22 +93,39 @@ angular.module('droem', ['ionic'])
     .state('tab.technique-fild', {
         url: '/technique/fild',
         views: {
-            'tab-technique-fild': {
+            'tab-technique': {
                 templateUrl: 'templates/technique-fild.html',
                 controller: 'FildCtrl'
-            } 
+            }
         }
     })
     .state('tab.technique-rythmnapping', {
         url: '/technique/rythm',
         views: {
-            'tab-technique-rythm': {
+            'tab-technique': {
                 templateUrl: 'templates/technique-rythm.html',
                 controller: 'RythmCtrl'
             }
         }
     })
-
+    .state('tab.technique-reality', {
+        url: '/technique/reality',
+        views: {
+            'tab-technique': {
+                templateUrl: 'templates/technique-reality.html',
+                controller: 'RealityCtrl'
+            }
+        }
+    })
+    .state('tab.technique-meditation', {
+        url: '/technique/meditation',
+        views: {
+            'tab-technique': {
+                templateUrl: 'templates/technique-meditation.html',
+                controller: 'MeditationCtrl'
+            }
+        }
+    })
   .state('tab.sync', {
     url: '/sync',
     views: {
@@ -109,4 +139,13 @@ angular.module('droem', ['ionic'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/diary');
 
+
+  // Configure LocalForage
+  $localForageProvider.config({
+        driver      : localforage.WEBSQL, // if you want to force a driver
+        name        : 'droem', // name of the database and prefix for your data, it is "lf" by default
+        version     : 1.0, // version of the database, you shouldn't have to use this
+        storeName   : 'droem', // name of the table
+        description : 'The droem storage.'
+    });
 });

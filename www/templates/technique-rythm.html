@@ -1,0 +1,20 @@
+<ion-view view-title="Rythm Napping">
+  <ion-content class="padding">
+      <div style="margin: 0; padding: 0;  width: 100%; text-align: center;">
+        <i class="icon ion-clock positive middle" style="font-size: 6rem"></i>
+      </div>
+      <div class="card">
+        <div class="item item-text-wrap">
+          Der Rythm Napping Timer von dr&oslash;m lässt dir {{data.timeout}} {{data.timeout > 1 ? 'Stunden' : 'Stunde'}}
+          Zeit einzuschlafen. Ab hier weckt dich der Signalton in 5, 10, 15 oder 20 Minuten abständen.
+        </div>
+      </div>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Einschlaf Zeit</span>
+          <input type="number" ng-model="data.rythmSleepEnd">
+        </label>
+      </div>
+      <button class="button button-block button-positive" ng-click="toggleNapping()">{{napping ? 'Stop' : 'Start'}}</button>
+  </ion-content>
+</ion-view>
