@@ -15,8 +15,8 @@
       </div>
      <ion-item ng-repeat="entry in entries | filter: searchTerm" ng-href="#/tab/diary/{{entry.id}}">
         <h2>{{entry.title}}</h2>
-        <p>erstellt: {{entry.timestamp}}</p>
-        <p>verändert: {{entry.modifiedAt}}</p>
+        <p>erstellt: {{entry.timestamp.slice(0,10)}}</p>
+        <p>verändert: {{entry.modifiedAt.slice(0,10)}}</p>
 
         <ion-option-button class="button-assertive" ng-click="remove(entry)">
           Löschen
