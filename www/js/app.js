@@ -126,6 +126,15 @@ angular.module('droem', ['ionic', 'LocalForageModule', 'ngCordova'])
             }
         }
     })
+    .state('tab.technique-wild', {
+        url: '/technique/wild',
+        views: {
+            'tab-technique': {
+                templateUrl: 'templates/technique-wild.html',
+                controller: 'WildCtrl'
+            }
+        }
+    })
   .state('tab.sync', {
     url: '/sync',
     views: {
