@@ -1,7 +1,7 @@
 angular.module('droem')
 .controller('DiaryEntryCtrl', function($scope, $state, $stateParams, $ionicPopup, $timeout, $cordovaCamera, Diary, Enum) {
-  $scope.techniques = Enum.technique_list;
-  $scope.dream_types = Enum.dream_types;
+  $scope.techniques = Enum.techniqueList;
+  $scope.dreamTypes = Enum.dreamTypes;
 
   function refresh() {
     Diary.find($stateParams.id).then(function(entry) {

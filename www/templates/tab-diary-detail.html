@@ -5,17 +5,16 @@
      </a>
   </ion-nav-buttons>
   <ion-content>
-    <div class="list card">
+    <div class="list card" ng-show="entry.image">
       <div class="item item-image">
-        <img ng-show="entry.image" ng-src="{{entry.image}}">
-        <span ng-show="!entry.image">Kein Bild verfügbar!</span>
+        <img ng-src="{{entry.image}}">
       </div>
     </div>
     <div class="list card">
-      <div class="item">
+      <div class="item item-text-wrap">
         <h2>{{entry.title}}</h2>
       </div>
-      <div class="item">
+      <div class="item item-text-wrap">
         <p>{{entry.text}}</p>
       </div>
     </div>
@@ -27,14 +26,14 @@
       <div class="item">
         <div class="row">
           <div class="col">Traumart:</div>
-          <div class="col">{{translate(entry.dream_type)}}</div>
+          <div class="col">{{translate(entry.dreamType)}}</div>
         </div>
 
         <div class="row">
           <div class="col">Techniken:</div>
           <div class="col">
             <ul>
-              <li ng-repeat="technique in entry.techniques">{{technique}}</li>
+              <li ng-repeat="technique in entry.techniques">{{translate(technique)}}</li>
             </ul>
           </div>
         </div>
@@ -56,17 +55,29 @@
 
         <div class="row">
           <div class="col">Personen:</div>
-          <div class="col">{{entry.persons}}</div>
+          <div class="col">
+            <ul>
+              <li ng-repeat="person in entry.persons.split(',')">{{person}}</li>
+            </ul>
+          </div>
         </div>
 
         <div class="row">
           <div class="col">Orte:</div>
-          <div class="col">{{entry.locations}}</div>
+          <div class="col">
+            <ul>
+              <li ng-repeat="location in entry.locations.split(',')">{{location}}</li>
+            <ul>
+          </div>
         </div>
 
         <div class="row">
           <div class="col">Gefühle:</div>
-          <div class="col">{{entry.feelings}}</div>
+          <div class="col">
+            <ul>
+              <li ng-repeat="feeling in entry.feelings.split(',')">{{feeling}}</li>
+            <ul>
+          </div>
         </div>
       </div>
     </div>
@@ -76,7 +87,7 @@
         <h2>Ereignisse aus dem Wachleben</h2>
       </div>
       <div class="item">
-        <p>{{entry.waking_life}}</p>
+        <p>{{entry.wakingLife}}</p>
       </div>
     </div>
   </ion-content>

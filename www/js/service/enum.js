@@ -47,7 +47,7 @@ angular.module('droem')
     }
 
     return {
-        technique_list: [
+        techniqueList: [
           'WILD',
           'DILD',
           'DEILD',
@@ -65,7 +65,7 @@ angular.module('droem')
           'VISUALIZATION'
         ],
 
-        dream_types: [
+        dreamTypes: [
           'DULL_DREAM',
           'LUCID_DREAM',
           'PRELUCID_DREAM',

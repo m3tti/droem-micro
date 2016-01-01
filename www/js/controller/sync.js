@@ -2,15 +2,13 @@ angular.module('droem')
 .controller('SyncCtrl', function($scope, $http, $cordovaBarcodeScanner, Diary) {
   function callback(scan_result, my_ip) {
       var interface_array = scan_result.text.split("\n");
-      alert(JSON.stringify(scan_result));
-      alert(my_ip);
 
       interface_array.forEach(function(int) {
         var int_ip = getIP(int);
         var int_subnet = int_ip.substring(0, int_ip.lastIndexOf("."))
         var my_subnet = my_ip.substring(0, my_ip.lastIndexOf("."));
 
-        alert("my: " + my_subnet + " int:" + int_subnet);
+        //alert("my: " + my_subnet + " int:" + int_subnet);
         //alert("int_ip: " + int_ip + "\nint_subnet: " + int_subnet + "\nmy_subnet: " + my_subnet);
 
         if(int_subnet === my_subnet) {
@@ -20,7 +18,7 @@ angular.module('droem')
             $http.post(url + 'sync', result).then(function(response) {
               var data = response.data;
 
-              alert(data);
+              //alert(data);
 
               data.forEach(function(entry) {
                 Diary.save(entry);
