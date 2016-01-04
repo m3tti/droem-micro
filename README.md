@@ -10,6 +10,7 @@ Die Techniken die drøm Microscope abdeckt sind:
 - ein Rythm Napping Programm
 - ein FILD / HILD Support Programm
 - ein 61 WILD Programm das die bei der 61 Punkte Entspannungstechnik unterstützt
+- REMulator vergleichbar mit der Funktionalität von REMEE
 
 drøm Microscope v0.9.9 jetzt für dein Android Phone
 - [Android](https://github.com/m3tti/droem-micro/raw/white_edition/download/droem-0.9.9.apk)
