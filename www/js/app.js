@@ -135,6 +135,15 @@ angular.module('droem', ['ionic', 'LocalForageModule', 'ngCordova'])
             }
         }
     })
+    .state('tab.technique-remulator', {
+        url: '/technique/remulator',
+        views: {
+            'tab-technique': {
+                templateUrl: 'templates/technique-remulator.html',
+                controller: 'RemulatorCtrl'
+            }
+        }
+    })
   .state('tab.sync', {
     url: '/sync',
     views: {
