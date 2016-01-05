@@ -6,7 +6,7 @@
       <div class="card">
         <div class="item item-text-wrap">
           REMulator von dr&oslash;m lässt dir {{data.remulatorSleepEnd}} {{data.remulatorSleepEnd > 1 ? 'Stunden' : 'Stunde'}}
-          Zeit einzuschlafen. Ab hier wecken dich {{data.blinkTimes}} {{data.remulatorSleepEnd > 1 ? 'Lichtblitze' : 'Lichtblitz'}} in 5, 10, 15 oder 20 Minuten abständen.
+          Zeit einzuschlafen. Ab hier wecken dich {{data.blinkTimes}} {{data.blinkTimes > 1 ? 'Lichtblitze' : 'Lichtblitz'}} in 5, 10, 15 oder 20 Minuten abständen.
         </div>
       </div>
       <div class="list">
@@ -26,3 +26,7 @@
       <button class="button button-block button-positive" ng-click="toggleRemulator()">{{remulator ? 'Stop' : 'Start'}}</button>
   </ion-content>
 </ion-view>
+
+<div id="overlay" ng-show="{{remulator}}">
+
+</div>

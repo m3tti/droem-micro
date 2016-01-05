@@ -1,5 +1,5 @@
 angular.module('droem')
-.controller('RemulatorCtrl', function($scope, $rootScope, $timeout, $cordovaFlashlight) {
+.controller('RemulatorCtrl', function($scope, $rootScope, $timeout, $cordovaFlashlight, $cordovaDevice, $ionicPopup) {
     function init() {
       if(!$rootScope.remulatorInitialized || typeof $rootScope.remulatorInitialized === "undefined") {
         $rootScope.remulatorInitialized = true;
@@ -39,7 +39,7 @@ angular.module('droem')
           }, function(error) {});
         } else {
           $rootScope.remulatorTimeout = $timeout(function() {
-            flash();
+            flash(0);
           }, randomTimeout());
         }
       }
@@ -52,17 +52,35 @@ angular.module('droem')
     $scope.toggleRemulator = function() {
       $rootScope.remulator = !$rootScope.remulator;
       if($rootScope.remulator) {
+        // Keep screen awake on IOS
+        if($cordovaDevice.getPlatform() === "iOS") {
+          window.plugins.insomnia.keepAwake();
+        }
+        $scope.showAlert();
+
         $rootScope.remulatorTimeout = $timeout(function() {
           flash(0);
         }, 3600000 * $rootScope.data.remulatorSleepEnd);
       }
       else {
+        // Disable screen awake
+        if($cordovaDevice.getPlatform() === "iOS") {
+          window.plugins.insomnia.allowSleepAgain();
+        }
+
         $timeout.cancel($rootScope.remulatorTimeout);
         $cordovaFlashlight.switchOff().then(
             function (success) {},
             function (error) { /* error */ });
-
       }
+    };
+
+    $scope.showAlert = function() {
+      var alertPopup = $ionicPopup.alert({
+        title: '!!! iOS Hack !!!',
+        template: 'Make it dark',
+        cssClass: 'darkPopup'
+      });
     };
 
     init();

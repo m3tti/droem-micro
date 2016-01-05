@@ -12,7 +12,7 @@ Die Techniken die drøm Microscope abdeckt sind:
 - ein 61 WILD Programm das die bei der 61 Punkte Entspannungstechnik unterstützt
 - REMulator vergleichbar mit der Funktionalität von REMEE
 
-drøm Microscope v0.9.9 jetzt für dein Android Phone
-- [Android](https://github.com/m3tti/droem-micro/raw/white_edition/download/droem-0.9.9.apk)
+drøm Microscope v0.9.10 jetzt für dein Android Phone
+- [Android](https://github.com/m3tti/droem-micro/raw/white_edition/download/droem-0.9.10.apk)
 
 Unterstütze meine Arbeit. [![donate](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6DR64MASBWBXJ)
